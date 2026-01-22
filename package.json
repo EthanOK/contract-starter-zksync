@@ -1,11 +1,13 @@
 {
-  "name": "solidity-starter-zksync",
+  "name": "contract-starter-zksync",
   "description": "A template for ZKsync smart contracts development with Hardhat",
   "private": true,
+  "type": "module",
   "author": "Matter Labs",
   "license": "MIT",
   "repository": "https://github.com/matter-labs/zksync-hardhat-template.git",
   "scripts": {
+    "prepare": "husky install",
     "deploy": "hardhat run ./scripts/deploy.ts",
     "deploy-erc20": "hardhat run ./scripts/deploy-erc20.ts",
     "deploy-nft": "hardhat run ./scripts/deploy-nft.ts",
@@ -14,7 +16,20 @@
     "clean": "hardhat clean",
     "test": "hardhat test --network hardhat",
     "node": "hardhat node-zksync",
-    "format": "prettier -w contracts/** test/** scripts/**"
+    "format": "prettier -w contracts/** test/** scripts/**",
+    "release": "standard-version",
+    "commit": "git add . && git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "tag": true,
+      "commit": true
+    }
   },
   "devDependencies": {
     "@matterlabs/hardhat-zksync": "^1.6.2",
@@ -22,6 +37,7 @@
     "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
     "@nomicfoundation/hardhat-verify": "^2.1.3",
     "@openzeppelin/contracts": "^5.3.0",
+    "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "prettier-plugin-solidity": "^2.2.1",
     "@types/chai": "^5.2.2",
@@ -33,7 +49,21 @@
     "hardhat": "^2.24.0",
     "mocha": "^11.2.2",
     "ts-node": "^10.9.2",
+    "standard-version": "^9.5.0",
+    "commitizen": "^4.3.1",
+    "cz-git": "^1.12.0",
     "typescript": "^5.8.3",
     "zksync-ethers": "^6.17.0"
+  },
+  "lint-staged": {
+    "contracts/**": [
+      "prettier --write"
+    ],
+    "scripts/**": [
+      "prettier --write"
+    ],
+    "test/**": [
+      "prettier --write"
+    ]
   }
 }
