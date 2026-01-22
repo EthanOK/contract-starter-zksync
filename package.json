@@ -1,11 +1,11 @@
 {
   "name": "contract-starter-zksync",
+  "version": "0.0.1",
   "description": "A template for ZKsync smart contracts development with Hardhat",
   "private": true,
-  "type": "module",
-  "author": "Matter Labs",
+  "author": "0xEthan Labs",
   "license": "MIT",
-  "repository": "https://github.com/matter-labs/zksync-hardhat-template.git",
+  "repository": "https://github.com/EthanOK/contract-starter-zksync.git",
   "scripts": {
     "prepare": "husky install",
     "deploy": "hardhat run ./scripts/deploy.ts",

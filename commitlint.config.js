@@ -1,6 +1,6 @@
-import { defineConfig } from "cz-git";
+const { defineConfig } = require("cz-git");
 
-export default defineConfig({
+module.exports = defineConfig({
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
   },
